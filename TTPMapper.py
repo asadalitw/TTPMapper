@@ -51,13 +51,7 @@ def parse_gpt_response(gpt_response):
     try:
         answer = gpt_response['answer']
         partss = answer.split('\n')
-        print("PARTSSSS")
-        print(partss)
-
-        #elaboration_part = partss[0].strip()
-        #print("Elaborated_Sentence")
-        #print(elaboration_part)
-
+    
         techniques_part_new = partss[2].replace('MITRE techniques number: ', '').strip().split(', ')
         prob_part_new = partss[3].replace('MITRE techniques probability: ', '').strip().split(', ')    
         print("\nTechnique_testing_new\n")
@@ -177,17 +171,17 @@ def display_results(sentences, results_model1, results_model2, chatbot_results, 
         print("="*80)
 
 # Main processing
-model_path_A = "C:\\Users\\2201023\\Documents\\CyBERT\\Model A for TTP Paper_Enterprise_202"
-tokenizer_path_A = "C:\\Users\\2201023\\Documents\\CyBERT\\Model A for TTP Paper_Enterprise_202"
-file_path_A = "C:\\Users\\2201023\\Documents\\CyBERT\\Revised Dataset\\Data_for models training_Enterprise.csv"
+model_path_A = "Your trained model path here (for model trained on keywords)"
+tokenizer_path_A = "Your tokenizer path for model A"
+file_path_A = "Your csv file that was used to train model A"
 label_column_A = 0
 
-model_path_B = "C:\\Users\\2201023\\Documents\\CyBERT\\Model B for TTP Paper_Enterprise_202"
-tokenizer_path_B = "C:\\Users\\2201023\\Documents\\CyBERT\\Model B for TTP Paper_Enterprise_202"
-file_path_B = "C:\\Users\\2201023\\Documents\\CyBERT\\Revised Dataset\\Data_for models training_Enterprise.csv"
+model_path_B = "Your trained model path here (for model trained on elaborated sentences)"
+tokenizer_path_B = "Your tokenizer path for model B"
+file_path_B = "Your csv file used to train model B"
 label_column_B = 0
 
-file_path = "C:\\Users\\2201023\\Documents\\CyBERT\\Revised Dataset\\Data_for models training_Enterprise_test.csv"
+file_path = "Input file that contains unseen sentences for prediction.csv"
 output_file = "TTPMapper_output.csv"
 
 df_original = pd.read_csv(file_path)
